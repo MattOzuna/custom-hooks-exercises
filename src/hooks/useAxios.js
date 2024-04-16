@@ -17,7 +17,7 @@ const useAxios = (key, defaultValue) => {
     }
   };
 
-  return [Data, fetchData];
+  return [Data, fetchData, setData];
 };
 
 export default useAxios;

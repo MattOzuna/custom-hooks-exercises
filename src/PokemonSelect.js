@@ -3,7 +3,7 @@ import pokemonList from "./pokemonList";
 import { choice } from "./helpers";
 
 /* Select element to choose from common pokemon. */
-function PokemonSelect({ add, pokemon = pokemonList }) {
+function PokemonSelect({ add, pokemon = pokemonList, setPokemon }) {
   const [pokeIdx, setPokeIdx] = useState(0);
   const handleChange = (evt) => {
     setPokeIdx(evt.target.value);
@@ -22,9 +22,7 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
       <button onClick={() => add(choice(pokemon))}>I'm feeling lucky</button>
       <button
         onClick={() => {
-          let val = JSON.stringify([])
-          window.localStorage.setItem('pokemon', val);
-          window.location.reload()
+          setPokemon([]);
         }}
       >
         X
