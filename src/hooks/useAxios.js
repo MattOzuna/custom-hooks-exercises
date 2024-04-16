@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { v1 as uuid } from "uuid";
+import useLocalStorageState from "./useLocalStorageState";
 
-const useAxios = () => {
-  const [Data, setData] = useState([]);
+const useAxios = (key, defaultValue) => {
+  const [Data, setData] = useLocalStorageState(key, defaultValue);
   const fetchData = async (url, params = "") => {
-    console.log(params !== '')
     try {
       const response =
         params !== ''

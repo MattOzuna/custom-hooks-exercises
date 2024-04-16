@@ -5,7 +5,7 @@ import useAxios from "./hooks/useAxios";
 /* Renders a list of playing cards.
  * Can also add a new card at random. */
 function CardTable() {
-  const [cards, addCard] = useAxios();
+  const [cards, addCard] = useAxios("cards", []);
   return (
     <div className="PlayingCardList">
       <h3>Pick a card, any card!</h3>
@@ -16,6 +16,15 @@ function CardTable() {
           }
         >
           Add a playing card!
+        </button>
+        <button
+          onClick={() => {
+            let val = JSON.stringify([]);
+            window.localStorage.setItem("cards", val);
+            window.location.reload();
+          }}
+        >
+          X
         </button>
       </div>
       <div className="PlayingCardList-card-area">

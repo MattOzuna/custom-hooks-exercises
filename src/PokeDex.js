@@ -8,7 +8,7 @@ import useAxios from "./hooks/useAxios";
  * Can also add a new card at random,
  * or from a dropdown of available pokemon. */
 function PokeDex() {
-  const [pokemon, addPokemon] = useAxios();
+  const [pokemon, addPokemon] = useAxios('pokemon', []);
   return (
     <div className="PokeDex">
       <div className="PokeDex-buttons">

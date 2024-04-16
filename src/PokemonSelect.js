@@ -20,6 +20,15 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
       </select>
       <button onClick={() => add(pokemon[pokeIdx])}>Catch one!</button>
       <button onClick={() => add(choice(pokemon))}>I'm feeling lucky</button>
+      <button
+        onClick={() => {
+          let val = JSON.stringify([])
+          window.localStorage.setItem('pokemon', val);
+          window.location.reload()
+        }}
+      >
+        X
+      </button>
     </div>
   );
 }
